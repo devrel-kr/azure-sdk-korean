@@ -111,7 +111,7 @@ public final class <service_name>Client {
     public Response<<model>> <service_operation>(<parameters>) {
         // ...
     }
-    
+
     // A paginated sync list API including HTTP response details (refer to pagination section for more details).
     public PagedIterable<<model>> list<service_operation>(<parameters>) {
         // ...
@@ -297,6 +297,10 @@ public final class ConfigurationClientBuilder {
 
 {% include requirement/MUST id="android-versioning-latest-service-api" %} call the highest supported service API version by default, and ensure this is clearly documented.
 
+{% include requirement/MUSTNOT id="android-versioning-no-previews-in-stable" %} include preview API versions in a stable SDK release's API version enum.
+
+{% include requirement/MUST id="android-versioning-no-previews-in-stable" %} expose preview API versions only in beta SDKs.
+
 {% include requirement/MUST id="android-versioning-select-service-api" %} provide an enum of supported service API versions that can be supplied via the [options class](#option-parameters) when initializing the service client, as shown below:
 
 ```java
@@ -338,7 +342,7 @@ ConfigurationClient client = new ConfigurationClientBuilder()
 ConfigurationSetting setting = client.getConfigurationSetting("name", "label");
 ```
 
-{% include requirement/MUST id="android-versioning-latest-service-property" %} return the latest stable API version for the service that is supported by the client using the enum's `getLatest()` method.
+{% include requirement/MUST id="android-versioning-latest-service-property" %} include a `getLatest()` method on the client's API version enum which returns the latest preview API version for beta SDKs and the latest GA API version for stable SDKs.
 
 #### Service Methods
 
@@ -361,7 +365,7 @@ getFoo(x, y)
 getFoo(x, y, z) // maximal overload
 getFoo(a)       // maximal overload
 
-// this will result in the following two methods being required 
+// this will result in the following two methods being required
 // (replacing the two maximal overloads above)
 getFoo(x, y, z, Context)
 getFoo(a, Context)
@@ -678,7 +682,7 @@ public final class PiiTaskParameters {
         this.domain = domain;
         return this;
     }
-   
+
     public String getModelVersion() {
         return this.modelVersion;
     }
@@ -710,30 +714,30 @@ public final class TextDocumentInput {
     // Required properties.
     private final String id;
     private final String text;
-  
+
     // Optional property.
     private String language;
-  
+
     // Constructor to enforce setting the required properties.
     public TextDocumentInput(String id, String text) {
         this.id = Objects.requireNonNull(id, "'id' cannot be null.");
         this.text = Objects.requireNonNull(text, "'text' cannot be null.");
     }
-  
+
     // Required properties only have getters.
     public String getId() {
         return this.id;
     }
-  
+
     public String getText() {
         return this.text;
     }
-  
+
     // Optional property has both getter and fluent setter.
     public String getLanguage() {
         return this.language;
     }
-  
+
     public TextDocumentInput setLanguage(String language) {
         this.language = language;
         return this;
@@ -855,7 +859,7 @@ public final class PhoneNumber {
 
     public String getPhoneNumber() {
         ...
-    } 
+    }
 }
 ```
 
@@ -907,7 +911,7 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 {% include requirement/MUST id="android-errors-exception-tree" %} use the existing exception types present in the Azure Core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
 
 - `AzureException`: Never use directly. Throw a more specific subtype.
-  - `HttpResponseException`: Thrown when an unsuccessful response is received with http status code (e.g. 3XX, 4XX, 5XX) from the service request. 
+  - `HttpResponseException`: Thrown when an unsuccessful response is received with http status code (e.g. 3XX, 4XX, 5XX) from the service request.
     - `ClientAuthenticationException`: Thrown when there's a failure to authenticate against the service.
     - `DecodeException`: Thrown when there's an error during response deserialization.
     - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
@@ -945,7 +949,7 @@ Azure services use a variety of different authentication schemes to allow client
 
 {% include requirement/MUST id="android-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
 
-{% include requirement/MUST id="android-auth-credential-type-suffix" %} append `Credential` to the end of the custom credential type name. Note this must be singular, not plural. 
+{% include requirement/MUST id="android-auth-credential-type-suffix" %} append `Credential` to the end of the custom credential type name. Note this must be singular, not plural.
 
 {% include requirement/MUST id="android-auth-provide-credential-constructor" %} define a constructor or factory for the custom credential type which takes in ALL data needed for the custom authentication protocol.
 
@@ -1040,7 +1044,7 @@ public class UserPreferencesTest {
 
         // wire the mock client to UserPreferences
         UserPreferences userPreferences = new UserPreferences(configurationClient);
-        
+
         // assert the client response
         assertEquals(Theme.LIGHT, userPreferences.getTheme());
     }
