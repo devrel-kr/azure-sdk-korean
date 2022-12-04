@@ -5,12 +5,12 @@ namespace Azure.Configuration {
 
     public class ConfigurationClient {
         public readonly ConfigurationClient.ConfigurationServiceOptions Options;
-        
+
         public ConfigurationClient(string connectionString);
         public ConfigurationClient(string connectionString, ClientPipeline pipeline);
-        
+
         public ClientPipeline Pipeline { get; }
-        
+
         public Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellation = default(CancellationToken));
         public Task<Response<ConfigurationSetting>> DeleteAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default(CancellationToken));
         public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default(CancellationToken));
@@ -19,13 +19,13 @@ namespace Azure.Configuration {
         public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellation = default(CancellationToken));
         public Task<Response<ConfigurationSetting>> UnlockAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default(CancellationToken));
         public Task<Response<ConfigurationSetting>> UpdateAsync(ConfigurationSetting setting, CancellationToken cancellation = default(CancellationToken));
-        
+
         public struct ConfigurationServiceOptions {
             public ConfigurationServiceOptions(string apiVersion);
             public string ApplicationId { get; set; }
         }
     }
-    
+
     public sealed class ConfigurationSetting {
         public ConfigurationSetting();
         public string ContentType { get; set; }
@@ -37,13 +37,13 @@ namespace Azure.Configuration {
         public IDictionary<string, string> Tags { get; set; }
         public string Value { get; set; }
     }
-    
+
     public class SettingBatch : IEnumerable, IEnumerable<ConfigurationSetting> {
         public SettingBatch();
         public int NextIndex { get; set; }
         public IEnumerator<ConfigurationSetting> GetEnumerator();
     }
-    
+
     public enum SettingFields : uint {
         All = (uint)4294967295,
         ContentType = (uint)8,
@@ -56,7 +56,7 @@ namespace Azure.Configuration {
         Tags = (uint)128,
         Value = (uint)4,
     }
-    
+
     public class SettingFilter {
         public SettingFilter();
         public ETagFilter ETag { get; set; }

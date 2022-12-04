@@ -1,13 +1,13 @@
 ---
-title: "등록된 네임스페이스 목록"
+title: "Registered Namespaces"
 permalink: registered_namespaces.html
 folder: general
 sidebar: general_sidebar
 ---
 
-다음은 등록된 네임스페이스 목록입니다.
+The following are a list of registered namespaces.
 
-| 네임스페이스                     | 서비스 소유자                      |
+| Namespace                     | Service Owner                  |
 | :---------------------------- | :----------------------------- |
 | `azure.ai.formrecognizer`     | [Form Recognizer]              |
 | `azure.ai.textanalytics`      | [Text Analytics]               |
@@ -22,13 +22,13 @@ sidebar: general_sidebar
 | `azure.storage.files.datalake`| [Azure Storage]                |
 | `azure.storage.queues`        | [Azure Storage]                |
 
-우리는 표준 형식으로 네임스페이스를 나타냅니다(각 요소는 모두 소문자이며 `azure` 식별자로 시작합니다). 사용하기 전에 이 표준 양식을 언어별 형식으로 변경해야 합니다. 예를 들어, `azure.security.keyvault`는 다음과 같이 표시됩니다.
+We represent the namespace in a standard form (each element is all lower case and starts with the `azure` identifier).  This standard form must be turned into the language-specific form before use.  For example, `azure.security.keyvault` is represented as:
 
-* 자바: `com.azure.security.keyvault`
-* .NET: `Azure.Security.KeyVault`
-* C++: `Azure::Security::KeyVault`
+* `com.azure.security.keyvault` in Java,
+* `Azure.Security.KeyVault` in .NET, and
+* `Azure::Security::KeyVault` in C++.
 
-새로운 네임스페이스를 등록하려면, [Architecture Board]에 문의하십시오.
+To register a new namespace, contact the [Architecture Board].
 
 {% include refs.md %}
 
