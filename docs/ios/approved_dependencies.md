@@ -1,5 +1,5 @@
-| Name              | Role                          | Version |
-|-------------------|-------------------------------|:-------:|
-| [`LibName`]       | Library Role                  | 1.0.0   |
+| 이름 | 역할 | 버전 |
+| --- | --- | :-: |
+| [`LibName`] | 라이브러리 역할 | 1.0.0 |
 
 [`LibName`]: https://aka.ms/go_libname

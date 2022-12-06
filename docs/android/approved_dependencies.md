@@ -1,9 +1,9 @@
-| Name              | Role                          | Scope          |
-|-------------------|-------------------------------|:--------------:|
-| [`ThreeTen`]      | JSR-310 Implementation        | API            |
-| [`OkHttp`]        | HTTP Client Implementation    | API            |
-| [`Retrofit`]      | REST API library              | Implementation |
-| [`Jackson`]       | JSON parser                   | Implementation |
+| 이름 | 역할 | 범위 |
+| --- | --- | :-: |
+| [`ThreeTen`] | JSR-310 구현 | API |
+| [`OkHttp`] | HTTP 클라이언트 구현 | API |
+| [`Retrofit`] | REST API 라이브러리 | 구현 |
+| [`Jackson`] | JSON 파서 | 구현 |
 
 [`ThreeTen`]: https://github.com/JakeWharton/ThreeTenABP
 [`OkHttp`]: https://square.github.io/okhttp/
