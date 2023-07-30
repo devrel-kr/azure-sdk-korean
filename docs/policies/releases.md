@@ -45,25 +45,24 @@ SDK 사용자를 릴리즈되는 새 버전으로 신속하게 전환하려면 �
 
 (참고) Archboard에서 승인을 얻으려면 마이그레이션 가이드 생성이 필요합니다.
 
-#### New version release
+#### 새로운 버전 릴리스
 
-Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately is mandatory and will be used in automatically generating formatted release notes on each GitHub release.
+`CHANGELOG.md` 파일이 사용할 수 있고 형식이 적절한지 확인하는 것은 필수이며, 각 GitHub 릴리스에 대해 정형화된 릴리스 노트를 자동으로 생성하는 데 사용됩니다.
 
-{% include requirement/MUST %} maintain a changelog for every package.
+{% include requirement/MUST %} 모든 패키지에 대한 변경 로그를 유지합니다.
 
-{% include requirement/MUST %} `CHANGELOG.md` file should be added in the root folder of the library.
+{% include requirement/MUST %} `CHANGELOG.md` 파일을 라이브러리의 루트 폴더에 추가해야 합니다.
 
-{% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
+{% include requirement/MUST %} 확장자를 제외하고 모두 대문자로 이름 변경 로그를 작성합니다, i.e. `CHANGELOG.md`.
 
-{% include requirement/MUST %} follow the format in the guidelines section below [Change Logs](#change-logs).
+{% include requirement/MUST %} 변경 로그는 아래 가이드라인 섹션의 형식을 따르세요. [Change Logs](#change-logs).
 
-### 3) Blogs & Samples
+### 3) 블로그 & 예시
 
-Advertising our SDKs is key to increasing their adoption and getting their latest and greatest features to the hands of their users. the following steps should be taken once the new version is live:
-- Adding a blog entry on the [Azure SDK blog site](https://devblogs.microsoft.com/azure-sdk/) by contacting the [admins](mailto:azsdkblog@microsoft.com).
-- working with the Azure service team for which you're building this version of the SDK to advertise the release through their official communication channels.
-- ensuring that you have Solid samples in the SDK repository demonstrating the use of this new version.
-
+SDK를 홍보하는 것은 채택률을 높이고 사용자에게 최신 기능을 제공하는 데 핵심적인 역할을 합니다. 새 버전이 출시되면 다음 단계를 수행해야 합니다:
+- 관리자[admins](mailto:azsdkblog@microsoft.com)에게 문의하여 Azure SDK 블로그 사이트[Azure SDK blog site](https://devblogs.microsoft.com/azure-sdk/)에 블로그 항목을 추가합니다.
+- 이 버전의 SDK를 빌드하는 Azure 서비스 팀과 협력하여 공식 커뮤니케이션 채널을 통해 릴리스를 홍보합니다.
+- SDK 저장소에 이 새로운 버전의 사용을 시연하는 솔리드 샘플이 있는지 확인합니다.
 ### 4) Payload Backwards Compatibility
 
 A manual migration test should be developed to ensure that payloads and data fed into the previous version of the SDK are gracefully handled when fed to the new SDK.
